@@ -6,7 +6,7 @@ A passwordless authentication demo app using Email + OTP (One-Time Password), bu
 
 <p float="left">
   <img src="screenshots/login_screen.png" width="250" alt="Login Screen" />
-  <img src="screenshots/otp_screen.png" width="250" alt="OTP Screen" />
+  <img src="screenshots/otp_screeen.png" width="250" alt="OTP Screen" />
   <img src="screenshots/session_screen.png" width="250" alt="Session Screen" />
 </p>
 
