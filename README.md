@@ -182,11 +182,96 @@ private fun startOtpCountdown(email: String) {
 ### Session Timer
 Similar implementation for tracking logged-in session duration.
 
-## Building and Running
+## Setup Instructions
 
-1. Open project in Android Studio
-2. Sync Gradle files
-3. Run on emulator or device (API 24+)
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+| Requirement | Version | Notes |
+|-------------|---------|-------|
+| **Android Studio** | Ladybug (2024.2.1) or later | [Download](https://developer.android.com/studio) |
+| **JDK** | 11+ | Bundled with Android Studio |
+| **Android SDK** | API 36 (compile), API 24+ (min) | Install via SDK Manager |
+| **Gradle** | 8.13+ | Managed by Gradle Wrapper |
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/pranav8431/OtpAuthCompose.git
+   cd OtpAuthCompose
+   ```
+
+2. **Open in Android Studio**
+   - Launch Android Studio
+   - Select **File → Open**
+   - Navigate to the cloned project folder and click **OK**
+
+3. **Sync Gradle**
+   - Android Studio will automatically prompt you to sync Gradle
+   - If not, click **Sync Project with Gradle Files** in the toolbar
+   - Wait for dependencies to download
+
+4. **Configure an Emulator (Optional)**
+   - Go to **Tools → Device Manager**
+   - Click **Create Device**
+   - Select a device (e.g., Pixel 6) and click **Next**
+   - Choose a system image with API 24 or higher
+   - Click **Finish**
+
+### Building the Project
+
+**From Android Studio:**
+- Click **Build → Make Project** or press `Ctrl+F9` (Windows/Linux) / `Cmd+F9` (macOS)
+
+**From Command Line:**
+```bash
+# Debug build
+./gradlew assembleDebug
+
+# Release build
+./gradlew assembleRelease
+```
+
+The APK will be generated at:
+- Debug: `app/build/outputs/apk/debug/app-debug.apk`
+- Release: `app/build/outputs/apk/release/app-release.apk`
+
+### Running the App
+
+**From Android Studio:**
+1. Select a target device (emulator or connected device) from the dropdown
+2. Click the **Run** button (green play icon) or press `Shift+F10`
+
+**From Command Line:**
+```bash
+# Install and run debug build on connected device
+./gradlew installDebug
+
+# Run using adb after building
+adb install app/build/outputs/apk/debug/app-debug.apk
+adb shell am start -n com.example.otpauthcompose/.MainActivity
+```
+
+### Running Tests
+
+```bash
+# Unit tests
+./gradlew test
+
+# Instrumented tests (requires device/emulator)
+./gradlew connectedAndroidTest
+```
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Gradle sync fails | Ensure you're connected to the internet and using compatible Android Studio version |
+| Emulator won't start | Enable hardware acceleration (HAXM/KVM) in BIOS |
+| Build fails with JDK error | Ensure JDK 11+ is configured in **File → Project Structure → SDK Location** |
+| "SDK not found" | Create `local.properties` file with `sdk.dir=/path/to/android/sdk` |
 
 ## AI-Assisted vs Manual Implementation
 
